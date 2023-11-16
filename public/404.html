@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" translate="no">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?version=v1" />
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png?version=v1" />
+    <link rel="apple-touch-icon" sizes="any" href="%PUBLIC_URL%/logo.svg?version=v1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="theme-color" content="#f01d64" />
+    <meta name="fortmatic-site-verification" content="j93LgcVZk79qcgyo" />
+    <meta
+      name="description"
+      content="VoxelSwap is DeFi’s first Dynamic Market Maker; a decentralized exchange protocol that provides frictionless crypto liquidity with extremely high flexibility and capital efficiency. VoxelSwap is the first major protocol in Kyber’s liquidity hub."
+    />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <script src="%PUBLIC_URL%/datafeeds/udf/dist/bundle.js"></script>
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <link rel="preload" as="image" href="/logo-dark.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="preload"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>VoxelSwap - Swap and earn tokens at the best rates</title>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div id="app"></div>
+
+<style type="text/css" >
+    .footer_nav{
+      padding: 0px;
+      list-style: none;
+      display: inherit;
+    }
+    .nav_item .nav_title{
+        margin-top: 0px;
+        margin-bottom: 8px;
+    }
+    ul.nav_ul {
+        padding: 0px;
+        list-style: none;
+    }
+    .nav_ul li a {
+        text-decoration: none;
+        font-size: 12px;
+    }
+    .nav_ul li {
+        padding-left: 0px;
+        padding-right: 35px;
+        padding-bottom: 5px;
+    }
+    .aboutVxl{
+      display: block!important;
+    }
+</style>
+
+    <script>
+      ;(() => {
+        function doesUseDarkMode() {
+          const rawLocalState = window.localStorage.getItem('redux_localstorage_simple_user')
+          const hasRawLocalState = typeof rawLocalState === 'string'
+          if (hasRawLocalState) {
+            try {
+              // need JSON.parse here as we useLocalStorage when storing theme mode
+              const localState = JSON.parse(rawLocalState)
+              return true
+            } catch (e) {
+              // empty
+            }
+          }
+        }
+
+        function setInitialColorMode() {
+          function getInitialColorMode() {
+            const useDarkMode = doesUseDarkMode()
+            if (typeof useDarkMode === 'boolean') {
+              return useDarkMode ? 'dark' : 'light'
+            }
+
+            // If there is no saved preference, use a media query
+            const mediaQuery = '(prefers-color-scheme: dark)'
+            const mql = window.matchMedia(mediaQuery)
+            const hasImplicitPreference = typeof mql.matches === 'boolean'
+            if (hasImplicitPreference) {
+              return mql.matches ? 'dark' : 'light'
+            }
+
+            // default to 'light'.
+            return 'light'
+          }
+          const colorMode = getInitialColorMode()
+          // add HTML attribute if dark mode
+          if (colorMode === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+          }
+        }
+        setInitialColorMode()
+      })()
+    </script>
+    <script src="/charting_library/charting_library.standalone.js"></script>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

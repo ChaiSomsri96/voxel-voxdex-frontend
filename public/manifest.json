@@ -1,0 +1,15 @@
+{
+  "short_name": "KyberSwap",
+  "name": "KyberSwap",
+  "icons": [
+    {
+      "src": "./favicon.svg?version=1",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#f01d64",
+  "background_color": "#fff"
+}
